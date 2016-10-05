@@ -1,0 +1,8 @@
+<div class="photo-gallery-list-page">
+    <one-column-layout>
+		<a [routerLink]="['/photoGallery']" href="">CREATE PHOTO_GALLERY</a>
+        <photo-gallery-list [entities]="_store.photoGallerys$() | async"
+                   (onDelete)="_photoGalleryActions.remove({ id: $event.value.id })"
+                   (onEdit)="_router.navigate(['photogallery', $event.value.id])"></photo-gallery-list>
+    </one-column-layout>    
+</div>

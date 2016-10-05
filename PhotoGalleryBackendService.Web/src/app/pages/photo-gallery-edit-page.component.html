@@ -1,0 +1,10 @@
+<div class="photo-gallery-edit-page">
+    <one-column-layout>
+        <photo-gallery-edit-form 
+							(onSubmit)="onSubmit($event)"
+							(onCancel)="onCancel()"
+                         *ngIf="(!_activatedRoute.snapshot.params['id']) || (_activatedRoute.snapshot.params['id'] && (entity$ | async)?.id)"
+                         [photoGallery]="entity$ | async">
+		</photo-gallery-edit-form>
+    </one-column-layout>    
+</div>

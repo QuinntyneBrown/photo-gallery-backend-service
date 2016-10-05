@@ -1,0 +1,30 @@
+h1 {
+    font-size:1.5em;
+}
+
+a {
+    line-height:1.5em;
+    display:inline-block;    
+}
+
+.app-list-item-count {
+    min-width:25px;
+}
+
+.app-list-item-name {
+    min-width:200px;
+}
+
+.app-list-item-action {
+    font-size:0.75em;
+    cursor:pointer;
+    font-weight:100;
+}
+
+.app-list-item-name-column {
+    min-width:300px;
+}
+
+.app-list-header {
+    font-weight:600;
+}

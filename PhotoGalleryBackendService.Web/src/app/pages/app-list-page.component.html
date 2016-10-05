@@ -1,0 +1,8 @@
+<div class="app-list-page">
+    <one-column-layout>
+		<a [routerLink]="['/app']" href="">CREATE APP</a>
+        <app-list [entities]="_store.apps$() | async"
+                   (onDelete)="_appActions.remove({ id: $event.value.id })"
+                   (onEdit)="_router.navigate(['app', $event.value.id])"></app-list>
+    </one-column-layout>    
+</div>

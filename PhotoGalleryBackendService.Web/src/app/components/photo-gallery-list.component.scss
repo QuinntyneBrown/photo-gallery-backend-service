@@ -1,0 +1,30 @@
+h1 {
+    font-size:1.5em;
+}
+
+a {
+    line-height:1.5em;
+    display:inline-block;    
+}
+
+.photo-gallery-list-item-count {
+    min-width:25px;
+}
+
+.photo-gallery-list-item-name {
+    min-width:200px;
+}
+
+.photo-gallery-list-item-action {
+    font-size:0.75em;
+    cursor:pointer;
+    font-weight:100;
+}
+
+.photo-gallery-list-item-name-column {
+    min-width:300px;
+}
+
+.photo-gallery-list-header {
+    font-weight:600;
+}
