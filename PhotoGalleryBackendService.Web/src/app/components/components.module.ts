@@ -12,6 +12,10 @@ import { OneColumnLayoutComponent } from "./one-column-layout.component";
 import { PhotoGalleryEditFormComponent } from "./photo-gallery-edit-form.component";
 import { PhotoGalleryListComponent } from "./photo-gallery-list.component";
 
+import { PageHeaderComponent } from "./page-header.component";
+import { PageFooterComponent } from "./page-footer.component";
+import { SideNavComponent } from "./side-nav.component";
+
 const declarables = [
     AppEditFormComponent,
     AppListComponent,
@@ -20,7 +24,11 @@ const declarables = [
     DigitalAssetUploadComponent,
     OneColumnLayoutComponent,
     PhotoGalleryEditFormComponent,
-    PhotoGalleryListComponent
+    PhotoGalleryListComponent,
+
+    PageFooterComponent,
+    PageHeaderComponent,
+    SideNavComponent
 ];
 
 const providers = [];

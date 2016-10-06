@@ -5,5 +5,8 @@ export * from "./digital-asset-edit-form.component";
 export * from "./digital-asset-list.component";
 export * from "./digital-asset-upload.component";
 export * from "./one-column-layout.component";
+export * from "./page-footer.component";
+export * from "./page-header.component";
 export * from "./photo-gallery-edit-form.component";
 export * from "./photo-gallery-list.component";
+export * from "./side-nav.component";

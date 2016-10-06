@@ -204,6 +204,24 @@
     <Content Include="src\app\components\one-column-layout.component.scss">
       <DependentUpon>one-column-layout.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\components\page-footer.component.html">
+      <DependentUpon>page-footer.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\components\page-footer.component.scss">
+      <DependentUpon>page-footer.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\components\page-header.component.html">
+      <DependentUpon>page-header.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\components\page-header.component.scss">
+      <DependentUpon>page-header.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\components\side-nav.component.html">
+      <DependentUpon>side-nav.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\components\side-nav.component.scss">
+      <DependentUpon>side-nav.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\styles\index.scss" />
     <Content Include="src\styles\_breakpoints.scss" />
     <Content Include="src\styles\_normalize.scss" />
@@ -432,6 +450,9 @@
     <TypeScriptCompile Include="src\app\store\app.reducer.ts" />
     <TypeScriptCompile Include="src\app\store\digital-asset.reducer.ts" />
     <TypeScriptCompile Include="src\app\components\one-column-layout.component.ts" />
+    <TypeScriptCompile Include="src\app\components\page-header.component.ts" />
+    <TypeScriptCompile Include="src\app\components\page-footer.component.ts" />
+    <TypeScriptCompile Include="src\app\components\side-nav.component.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>
