@@ -17,14 +17,14 @@ import {
 export const routes: Routes = [
     {
         path: '',
-        component: LandingPageComponent
+        component: AppListPageComponent
     },
     {
         path: 'apps',
         component: AppListPageComponent
     },
     {
-        path: 'apps/create',
+        path: 'app',
         component: AppEditPageComponent
     },
     {
