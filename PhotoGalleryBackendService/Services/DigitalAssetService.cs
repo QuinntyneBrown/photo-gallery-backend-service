@@ -2,9 +2,15 @@ using System;
 using System.Collections.Generic;
 using PhotoGalleryBackendService.Data;
 using PhotoGalleryBackendService.Dtos;
-using System.Data.Entity;
 using System.Linq;
 using PhotoGalleryBackendService.Models;
+using System.Net.Http;
+using PhotoGalleryBackendService.UploadHandlers;
+using System.Collections.Specialized;
+using System.IO;
+using System.Net;
+using System.Web.Http;
+using System.Threading.Tasks;
 
 namespace PhotoGalleryBackendService.Services
 {
@@ -43,6 +49,46 @@ namespace PhotoGalleryBackendService.Services
             return response;
         }
 
+        public async Task<DigitalAssetUploadResponseDto> Upload(HttpRequestMessage request) {
+            var digitalAssets = new List<DigitalAsset>();
+            InMemoryMultipartFormDataStreamProvider provider = null;
+            try
+            {
+                if (!request.Content.IsMimeMultipartContent("form-data"))
+                    throw new HttpResponseException(HttpStatusCode.BadRequest);
+                provider = await request.Content.ReadAsMultipartAsync(new InMemoryMultipartFormDataStreamProvider());                
+            }
+            catch
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+
+            return await Upload(provider.FormData, provider.Files);
+        }
+
+
+        public async Task<DigitalAssetUploadResponseDto> Upload(NameValueCollection formData, IList<HttpContent> files) {
+
+            var digitalAssets = new List<DigitalAsset>();
+
+            foreach (var file in files)
+            {
+                var filename = new FileInfo(file.Headers.ContentDisposition.FileName.Trim(new char[] { '"' })
+                    .Replace("&", "and")).Name;
+                Stream stream = await file.ReadAsStreamAsync();
+                var bytes = StreamHelper.ReadToEnd(stream);
+                var digitalAsset = new DigitalAsset();
+                digitalAsset.FileName = filename;
+                digitalAsset.Bytes = bytes;
+                digitalAsset.ContentType = System.Convert.ToString(file.Headers.ContentType);
+                _repository.Add(digitalAsset);
+                digitalAssets.Add(digitalAsset);
+            }
+
+            _uow.SaveChanges();
+        
+            return new DigitalAssetUploadResponseDto(digitalAssets);
+        }
 
         public DigitalAssetDto GetById(int id)
         {
